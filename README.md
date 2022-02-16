@@ -2,7 +2,8 @@
 
 ## Link
 
-- CodePen: [Noughts & Crosses](https://codepen.io/samsonsham/pen/NWwvRqW/ "Noughts & Crosses")
+- Live site: [Github page](https://samsonsham.github.io/noughts-and-crosses/ "Noughts & Crosses")
+- Javascript Version: [CodePen](https://codepen.io/samsonsham/pen/NWwvRqW/ "Noughts & Crosses")
 
 ## Screenshots
 
