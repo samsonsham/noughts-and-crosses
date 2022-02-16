@@ -11,7 +11,8 @@
 ## Built With
 
 - React.js
-- SASS.
+- Typescript
+- SASS
 
 ## Tested With
 
