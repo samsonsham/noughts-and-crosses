@@ -22,6 +22,7 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
         cache: 'npm'
         
     - name: Install dependencies
@@ -31,13 +32,5 @@ jobs:
       run: npm test
     
     - name: Build and deploy
-      run: |
-        git config --global user.name $user_name
-        git config --global user.email $user_email
-        git remote set-url origin https://${github_token}@github.com/${repository}
+      run:
         npm run deploy
-      env:
-        user_name: 'Samson Sham'
-        user_email: 'samsonsham@gmail.com'
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        repository: ${{ github.repository }}
