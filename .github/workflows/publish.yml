@@ -32,7 +32,7 @@ jobs:
     
     - name: Build and deploy
       run:  |
-        git config --global user.name $user_name
+        git config --global url "git@github.com:"
         npm run deploy
       env:
         user_name: 'github-actions[bot]'
