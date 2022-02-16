@@ -1,0 +1,78 @@
+$color0: #fff;
+$color1: #444;
+$color2: DodgerBlue;
+$color3: LightSkyBlue;
+$color4: dimgrey;
+$color5: tomato;
+
+html {
+  font-family: Arial;
+}
+body {
+  display: flex;
+  > div {
+    margin: auto;
+    width: 400px;
+  }
+}
+h1 {
+  color: $color2;
+  font-size: 36px;
+}
+.grid-container {
+  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 15px;
+  padding: 0;
+  margin: 0 0 20px 0;
+  background-color: #444;
+  > button {
+    height: 120px;
+    outline: 0px solid $color0;
+    border: 0px;
+    background: $color0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:focus {
+      outline: 0px;
+      outline-offset: -4px;
+    }
+    &:active {
+      outline: 0px;
+      background: #eee;
+    }
+  }
+}
+.btnAgain {
+  background-color: $color2;
+  border: none;
+  border-radius: 10px;
+  color: $color0;
+  height: 60px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  padding: 7px 15px;
+  text-align: center;
+  font-size: 20px;
+  &:hover {
+    background-color: $color3;
+  }
+}
+.icon {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+}
+.red {
+  color: $color5;
+}
+.result {
+  height: 50px;
+  display: flex;
+  margin: 20px 0;
+}
