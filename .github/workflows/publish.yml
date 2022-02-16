@@ -31,5 +31,9 @@ jobs:
       run: npm test
     
     - name: Build and deploy
-      run: npm run deploy
+      run:  |
+        git config --global user.name $user_name
+        npm run deploy
+      env:
+        user_name: 'github-actions[bot]'
       
