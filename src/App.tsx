@@ -70,10 +70,18 @@ function App() {
     const isNought = noughtsArr.includes(boxNumber);
     const isCross = crossesArr.includes(boxNumber);
     const isEmpty = !isNought && !isCross;
+    const status = () => {
+      let thisStatus = '';
+      if (isNought) thisStatus = 'Nought';
+      if (isCross) thisStatus = 'Cross';
+      if (isEmpty) thisStatus = 'Empty';
+      return thisStatus;
+    };
     return {
       isNought,
       isCross,
       isEmpty,
+      status,
     };
   };
 
@@ -149,6 +157,7 @@ function App() {
           <button
             type="button"
             key={boxNumber}
+            aria-label={getStatus(boxNumber).status()}
             value={boxNumber}
             style={{ color: getWinBoxStyle(boxNumber) }}
             data-testid={boxNumber}
