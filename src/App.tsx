@@ -43,7 +43,7 @@ function App() {
     // Check who is eligible to win
     const noughtResult: number[][] = winArrays.filter((winArray) => isSubset(noughtsArr, winArray));
 
-    const crossResult = winArrays.filter((winArray) => isSubset(crossesArr, winArray));
+    const crossResult: number[][] = winArrays.filter((winArray) => isSubset(crossesArr, winArray));
 
     // Setting Winner
     if (noughtResult.length > 0) {
