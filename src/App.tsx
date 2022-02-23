@@ -31,27 +31,19 @@ function App() {
   // Check if any of a win array is a subset of Noughts or Crosses array
   // to determine who win
   const isSubset = (xoArr: number[], winArr: number[]) =>
-    winArr.every((number) =>
-      xoArr.includes(number));
+    winArr.every((number) => xoArr.includes(number));
 
   // Check the game result depending on changes of nought an cross array
   useEffect(() => {
     // Handle Draw
     const combinedArr = [...crossesArr, ...noughtsArr];
-    if (
-      !winner
-      && combinedArr.length === 9
-    ) {
+    if (!winner && combinedArr.length === 9) {
       setWinner('Draw');
     }
     // Check who is eligible to win
-    const noughtResult: number[][] = winArrays.filter(
-      (winArray) => isSubset(noughtsArr, winArray),
-    );
+    const noughtResult: number[][] = winArrays.filter((winArray) => isSubset(noughtsArr, winArray));
 
-    const crossResult = winArrays.filter(
-      (winArray) => isSubset(crossesArr, winArray),
-    );
+    const crossResult = winArrays.filter((winArray) => isSubset(crossesArr, winArray));
 
     // Setting Winner
     if (noughtResult.length > 0) {
@@ -143,14 +135,14 @@ function App() {
     <div>
       <h1>Noughts &#38; Crosses</h1>
       <div className="result">
-        {winner
-          ? <h2 className="red">{showResult()}</h2>
-          : (
-            <h2>
-              Turn:
-              <span className="red">{noughtTurn ? ' O ' : ' X '}</span>
-            </h2>
-          )}
+        {winner ? (
+          <h2 className="red">{showResult()}</h2>
+        ) : (
+          <h2>
+            Turn:
+            <span className="red">{noughtTurn ? ' O ' : ' X '}</span>
+          </h2>
+        )}
       </div>
       <div className="grid-container">
         {defaultGrid.map((boxNumber) => (
@@ -161,7 +153,7 @@ function App() {
             value={boxNumber}
             style={{ color: getWinBoxStyle(boxNumber) }}
             data-testid={boxNumber}
-            onClick={(e) => handleClick(e)}
+            onClick={handleClick}
             disabled={!!winner}
           >
             {withIcon(getStatus(boxNumber))}
@@ -169,15 +161,11 @@ function App() {
         ))}
       </div>
       <div className="again">
-        {winner
-          && (
-          <button
-            type="button"
-            onClick={(e) => handleReset(e)}
-          >
+        {winner && (
+          <button type="button" onClick={(e) => handleReset(e)}>
             Play Again
           </button>
-          )}
+        )}
       </div>
     </div>
   );
