@@ -35,25 +35,27 @@ function App() {
 
   // Check the game result depending on changes of nought an cross array
   useEffect(() => {
-    // Handle Draw
-    const combinedArr = [...crossesArr, ...noughtsArr];
-    if (!winner && combinedArr.length === 9) {
-      setWinner('Draw');
-    }
     // Check who is eligible to win
     const noughtResult: number[][] = winArrays.filter((winArray) => isSubset(noughtsArr, winArray));
-
     const crossResult: number[][] = winArrays.filter((winArray) => isSubset(crossesArr, winArray));
 
     // Setting Winner
+    let thisWinner = '';
     if (noughtResult.length > 0) {
-      setWinner('Noughts');
+      thisWinner = 'Noughts';
       const result = [...noughtResult];
       setWinResult(result);
     } else if (crossResult.length > 0) {
-      setWinner('Crosses');
+      thisWinner = 'Crosses';
       const result = [...crossResult];
       setWinResult(result);
+    }
+    setWinner(thisWinner);
+
+    // Handle Draw
+    const combinedArr = [...crossesArr, ...noughtsArr];
+    if (!thisWinner && combinedArr.length === 9) {
+      setWinner(`Draw`);
     }
   }, [noughtsArr, crossesArr]);
 
